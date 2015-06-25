@@ -39,3 +39,10 @@ var twoToPower = function(power){
   return work;
 }
 
+var findSumOfLargeNumber = function(power){
+  var work = twoToPower(power);
+  var result = 0;
+  work = work.split('');
+  work.map(function(value){result += Number(value)});
+  return result;
+}
