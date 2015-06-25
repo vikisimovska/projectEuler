@@ -27,6 +27,15 @@ var multiplyByTwo = function(input){
   if (carryOver){
     result = "1" + result;
   }
-  console.log(result);
+  return result;
+}
+
+var twoToPower = function(power){
+  var work = '2';
+  power--;
+  while (power--){
+    work = multiplyByTwo(work);
+  }
+  return work;
 }
 
