@@ -2,13 +2,31 @@
 
 
 // for multiplying string by two
-var multiplyByTwo = function(string){
-  var carryOver = 0;
+var multiplyByTwo = function(input){
+  var carryOver = false;
   var result = '';
-  var i = string.length; 
+  var i = input.length; 
+  var temp;
 
   while (i--){
-    console.log(string[i]);
+    if (carryOver){
+      temp = (Number(input[i]) * 2 + 1).toString();
+    }
+    else {
+      temp = (Number(input[i]) * 2).toString();
+    }
+    if (temp.length === 2){
+      carryOver = true;
+      result = temp[1] + result;
+    }
+    else {
+      carryOver = false;
+      result = temp[0] + result;
+    }
   }
-
+  if (carryOver){
+    result = "1" + result;
+  }
+  console.log(result);
 }
+
