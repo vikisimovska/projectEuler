@@ -1,3 +1,5 @@
+// https://projecteuler.net/problem=50
+
 var checkPrime = function(input){
   if (input === 1){
     return false;
