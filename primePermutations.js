@@ -21,25 +21,34 @@ var checkPrime = function(input){
 var isPermutationOfOthers = function(input1, input2, input3){
   var work = [];
   work.push(input1.toString().split(''), input2.toString().split(''), input3.toString().split(''));
-  console.log(work);
+  work[0] = work[0].sort().join('');
+  work[1] = work[1].sort().join('');
+  work[2] = work[2].sort().join('');
+  return (work[0] === work[1] && work[0] === work[2]);
 }
 
-// var work = [];
-// var current = [];
+var work = [];
+var current = [];
 
-// for (var i = 1000; i < 1500; i++){
-//   if (checkPrime(i)){
-//     for (var j = 1; j < 3333; j++){
-//       current = [];
-//       if (checkPrime(i + j)){
-//         if (checkPrime(i + 2 * j)){
-//           current.push(i);
-//           current.push(i+j);
-//           current.push(i+2*j);
-//           work.push(current.slice());
-//         }
-//       }
-//     }
-//   }
-//   work.push(current.slice());
-// }
+for (var i = 1000; i < 9999; i++){
+  if (checkPrime(i)){
+    for (var j = 1; j < 3333; j++){
+      current = [];
+      if (checkPrime(i + j)){
+        if (checkPrime(i + 2 * j)){
+          if (isPermutationOfOthers(i, i+j, i+2*j)){
+            current.push(i);
+            current.push(i+j);
+            current.push(i+2*j);
+            work.push(current.slice());
+          }
+        }
+      }
+    }
+  }
+}
+
+work = work[1];
+work = work[0].toString() + work[1].toString() + work[2].toString();
+
+console.log(work);
