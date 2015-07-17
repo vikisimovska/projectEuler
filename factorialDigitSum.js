@@ -38,11 +38,27 @@ function add(a, b) {
   return finalResult;
 }
 
-var multiply = function(a, b){
+var multiply = function(largerNum, b){
   var counter = b;
   var work = 0;
   while (counter--){
-    work = add(a, a);
+    work = add(work, largerNum);
   }
   return work;
 }
+
+var run = function(){
+  var work = '1';
+
+  for (var i = 1; i < 101; i++){
+    work = multiply(work, i);
+  }
+
+  var result = 0;
+  for (var i = 0; i < work.length; i++){
+    result += Number(work[i]);
+  }
+  return result;
+}
+
+run();
