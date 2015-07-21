@@ -18,3 +18,16 @@ var checkPrime = function(input){
   return check;
 }
 
+var usedOnlyOnce = function(input){
+  var work = input.toString();
+  var check = {};
+
+  for (var i = 0; i < work.length; i++){
+    if (check[work[i]]){
+      check[work[i]]++;
+    }else {
+      check[work[i]] = 1;
+    }
+  }
+  
+}
